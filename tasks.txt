@@ -1,0 +1,6 @@
+1. Model, Controller (working process), DataBase, DAO (plain JDBC) - complete	
+2. Hibernate - complete
+3. Spring
+4. Spring MVC (add jsp)
+5. Add user security (login, password)
+6. Deploying on internet

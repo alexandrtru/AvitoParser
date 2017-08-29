@@ -1,0 +1,21 @@
+CREATE TABLE filters (
+    id   INTEGER       PRIMARY KEY ASC ON CONFLICT ABORT AUTOINCREMENT
+                       UNIQUE
+                       NOT NULL ON CONFLICT ABORT,
+    name STRING (255)  NOT NULL ON CONFLICT ABORT
+                       DEFAULT unnamedFilter,
+    link STRING (1024) NOT NULL ON CONFLICT ABORT
+);
+
+CREATE TABLE ads (
+    siteId      INTEGER       PRIMARY KEY,
+    name        STRING (255)  NOT NULL ON CONFLICT ABORT,
+    price       INTEGER       DEFAULT (0),
+    link        STRING (1024) NOT NULL,
+    description STRING (512),
+    date        STRING,
+    isViewed    BOOLEAN       NOT NULL
+                              DEFAULT false,
+    filter      INTEGER       NOT NULL
+                              REFERENCES filters (id) ON DELETE CASCADE
+);
